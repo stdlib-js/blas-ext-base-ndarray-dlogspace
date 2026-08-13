@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,19 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-dlogspace' ).ndarray;
-
-
-// MAIN //
+import { float64ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
 * Fills a one-dimensional double-precision floating-point ndarray with logarithmically spaced values over a specified interval.
@@ -43,8 +35,8 @@ var strided = require( '@stdlib/blas-ext-base-dlogspace' ).ndarray;
 *     -   a zero-dimensional ndarray specifying the exponent of the final value.
 *     -   a zero-dimensional ndarray specifying whether to include the `base^stop` value when writing values to the input ndarray.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {ndarray} input ndarray
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
@@ -53,15 +45,15 @@ var strided = require( '@stdlib/blas-ext-base-dlogspace' ).ndarray;
 * var x = new Float64Vector( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 *
 * var base = scalar2ndarray( 10.0, {
-*    'dtype': 'float64'
+*     'dtype': 'float64'
 * });
 *
 * var strt = scalar2ndarray( 0.0, {
-*    'dtype': 'float64'
+*     'dtype': 'float64'
 * });
 *
 * var stp = scalar2ndarray( 5.0, {
-*    'dtype': 'float64'
+*     'dtype': 'float64'
 * });
 *
 * var endpoint = scalar2ndarray( true, {
@@ -71,25 +63,9 @@ var strided = require( '@stdlib/blas-ext-base-dlogspace' ).ndarray;
 * var out = dlogspace( [ x, base, strt, stp, endpoint ] );
 * // returns <ndarray>[ 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0 ]
 */
-function dlogspace( arrays ) {
-	var endpoint;
-	var base;
-	var strt;
-	var stp;
-	var x;
-
-	x = arrays[ 0 ];
-	base = ndarraylike2scalar( arrays[ 1 ] );
-	strt = ndarraylike2scalar( arrays[ 2 ] );
-	stp = ndarraylike2scalar( arrays[ 3 ] );
-	endpoint = ndarraylike2scalar( arrays[ 4 ] );
-
-	strided( numelDimension( x, 0 ), base, strt, stp, endpoint, getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-
-	return x;
-}
+declare function dlogspace( arrays: [ float64ndarray, typedndarray<number>, typedndarray<number>, typedndarray<number>, typedndarray<boolean> ] ): float64ndarray;
 
 
 // EXPORTS //
 
-module.exports = dlogspace;
+export = dlogspace;
