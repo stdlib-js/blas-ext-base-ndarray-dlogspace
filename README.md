@@ -41,32 +41,14 @@ limitations under the License.
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/blas-ext-base-ndarray-dlogspace
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
--   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var dlogspace = require( '@stdlib/blas-ext-base-ndarray-dlogspace' );
+import dlogspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-dlogspace@esm/index.mjs';
 ```
 
 #### dlogspace( arrays )
@@ -74,8 +56,8 @@ var dlogspace = require( '@stdlib/blas-ext-base-ndarray-dlogspace' );
 Fills a one-dimensional double-precision floating-point ndarray with logarithmically spaced values over a specified interval.
 
 ```javascript
-var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
-var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
+import Float64Vector from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-vector-float64@esm/index.mjs';
+import scalar2ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@esm/index.mjs';
 
 var x = new Float64Vector( [ 0.0, 0.0, 0.0, 0.0 ] );
 
@@ -130,9 +112,9 @@ The function has the following parameters:
     <!-- eslint-disable max-len -->
 
     ```javascript
-    var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
-    var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-    var ndarray2array = require( '@stdlib/ndarray-to-array' );
+    import Float64Vector from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-vector-float64@esm/index.mjs';
+    import scalar2ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@esm/index.mjs';
+    import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
 
     var x = new Float64Vector( [ 0.0, 0.0, 0.0 ] );
 
@@ -176,12 +158,17 @@ The function has the following parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var discreteUniform = require( '@stdlib/random-discrete-uniform' );
-var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-var ndarray2array = require( '@stdlib/ndarray-to-array' );
-var ndarraylike2scalar = require( '@stdlib/ndarray-ndarraylike2scalar' );
-var dlogspace = require( '@stdlib/blas-ext-base-ndarray-dlogspace' );
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="module">
+
+import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-discrete-uniform@esm/index.mjs';
+import scalar2ndarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@esm/index.mjs';
+import ndarray2array from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@esm/index.mjs';
+import ndarraylike2scalar from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-ndarraylike2scalar@esm/index.mjs';
+import dlogspace from 'https://cdn.jsdelivr.net/gh/stdlib-js/blas-ext-base-ndarray-dlogspace@esm/index.mjs';
 
 var opts = {
     'dtype': 'float64'
@@ -206,6 +193,10 @@ console.log( 'Endpoint: %s', ndarraylike2scalar( endpoint ) );
 
 dlogspace( [ x, base, strt, stp, endpoint ] );
 console.log( ndarray2array( x ) );
+
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -229,7 +220,7 @@ console.log( ndarray2array( x ) );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 

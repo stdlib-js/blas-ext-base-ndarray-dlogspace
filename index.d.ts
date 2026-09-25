@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,31 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { float64ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Fill a one-dimensional double-precision floating-point ndarray with logarithmically spaced values over a specified interval.
+* Fills a one-dimensional double-precision floating-point ndarray with logarithmically spaced values over a specified interval.
 *
-* @module @stdlib/blas-ext-base-ndarray-dlogspace
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a zero-dimensional ndarray specifying the base of the logarithmic scale.
+*     -   a zero-dimensional ndarray specifying the exponent of the starting value.
+*     -   a zero-dimensional ndarray specifying the exponent of the final value.
+*     -   a zero-dimensional ndarray specifying whether to include the `base^stop` value when writing values to the input ndarray.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns input ndarray
 *
 * @example
 * var Float64Vector = require( '@stdlib/ndarray-vector-float64' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var dlogspace = require( '@stdlib/blas-ext-base-ndarray-dlogspace' );
 *
 * var x = new Float64Vector( [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ] );
 *
@@ -49,12 +63,9 @@
 * var out = dlogspace( [ x, base, strt, stp, endpoint ] );
 * // returns <ndarray>[ 1.0, 10.0, 100.0, 1000.0, 10000.0, 100000.0 ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function dlogspace( arrays: [ float64ndarray, typedndarray<number>, typedndarray<number>, typedndarray<number>, typedndarray<boolean> ] ): float64ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = dlogspace;
